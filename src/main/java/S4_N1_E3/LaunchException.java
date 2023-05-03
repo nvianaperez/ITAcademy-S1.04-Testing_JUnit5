@@ -6,7 +6,7 @@ import java.util.List;
 
 public class LaunchException {
 
-    public static void countCharacters(String sentence) {
+    public static void countCharacters(String sentence) throws IndexOutOfBoundsException {
 
         if (sentence.length() < 5) {
             throw new IndexOutOfBoundsException();

@@ -13,11 +13,15 @@ class LaunchExceptionTest {
     @Test
     @DisplayName("IndexOutOfBoundException was expected")
     void countCharacters() {
-        IndexOutOfBoundsException thrown = Assertions.assertThrows(IndexOutOfBoundsException.class, () ->
-            LaunchException.countCharacters("La")
-        );
+        try {
+            IndexOutOfBoundsException thrown = Assertions.assertThrows(IndexOutOfBoundsException.class, () ->
+                    LaunchException.countCharacters("La")
+            );
+            Assertions.assertInstanceOf(IndexOutOfBoundsException.class, thrown);
 
-        Assertions.assertInstanceOf(IndexOutOfBoundsException.class, thrown);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }
